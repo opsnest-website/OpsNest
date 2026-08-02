@@ -126,11 +126,11 @@ Hero
 
     display:grid;
 
-    grid-template-columns:minmax(0,1fr) minmax(320px,480px);
+    grid-template-columns:minmax(0,1.15fr) minmax(360px,540px);
 
     align-items:center;
 
-    gap:clamp(32px,5vw,60px);
+    gap:clamp(40px,6vw,84px);
 
     min-width:0;
 
@@ -218,7 +218,7 @@ Hero
 
     align-items:center;
 
-    min-height:420px;
+    min-height:520px;
 
     min-width:0;
 
@@ -238,9 +238,11 @@ Hero
 .hero-logo img,
 .hero-image img{
 
-    width:min(100%,260px);
+    width:min(100%,340px);
 
     height:auto;
+
+    transform:translateY(-8px);
 
 }
 

@@ -56,7 +56,7 @@ Container
 
 .container{
 
-    width:min(92%,var(--container));
+    width:min(96%,var(--container));
 
     margin:auto;
 

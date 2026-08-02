@@ -12,6 +12,60 @@ Tablet
 
     }
 
+    .hero-grid{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+    .hero p{
+
+        margin-inline:auto;
+
+    }
+
+    .hero-image{
+
+        margin-top:48px;
+
+        min-height:320px;
+
+    }
+
+    .stats-grid,
+    .core-grid,
+    .why-grid,
+    .updates-grid{
+
+        grid-template-columns:repeat(2,minmax(0,1fr));
+
+    }
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:800px){
+
+    .project-grid,
+    .projects-grid{
+
+        grid-template-columns:repeat(2,minmax(0,1fr));
+
+    }
+
 }
 
 /*
@@ -42,25 +96,101 @@ Mobile
 
     }
 
-}
+    .hero{
 
-@media(max-width:1000px){
-
-    .project-grid,
-    .projects-grid{
-
-        grid-template-columns:repeat(2,1fr);
+        padding:72px 0;
 
     }
 
-}
+    .hero h1{
 
-@media(max-width:700px){
+        font-size:clamp(2.2rem,11vw,2.9rem);
 
+    }
+
+    .section-header{
+
+        margin-bottom:40px;
+
+    }
+
+    .section-header h2{
+
+        font-size:clamp(1.8rem,7vw,2.3rem);
+
+    }
+
+    .stats-grid,
     .project-grid,
-    .projects-grid{
+    .projects-grid,
+    .core-grid,
+    .why-grid,
+    .updates-grid{
 
         grid-template-columns:1fr;
+
+    }
+
+    .project-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .project-card,
+    .stat,
+    .about-card,
+    .core-card,
+    .why-card,
+    .update-card,
+    details,
+    .timeline-content{
+
+        padding:24px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        width:100%;
+
+        max-width:320px;
+
+        margin:0 auto;
+
+    }
+
+    .hero-buttons .btn{
+
+        width:100%;
+
+    }
+
+    .tech-list{
+
+        justify-content:center;
+
+    }
+
+    .timeline{
+
+        padding-left:22px;
+
+    }
+
+    .timeline-dot{
+
+        left:-22px;
+
+    }
+
+    .faq-list details summary{
+
+        word-break:break-word;
 
     }
 

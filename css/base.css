@@ -20,6 +20,10 @@ html{
 
     scroll-behavior:smooth;
 
+    -webkit-text-size-adjust:100%;
+
+    text-size-adjust:100%;
+
 }
 
 body{
@@ -31,6 +35,14 @@ body{
     font-family:var(--body-font);
 
     line-height:1.7;
+
+    min-width:320px;
+
+    overflow-wrap:anywhere;
+
+    -webkit-font-smoothing:antialiased;
+
+    -moz-osx-font-smoothing:grayscale;
 
     overflow-x:hidden;
 
@@ -76,10 +88,14 @@ img{
 
     max-width:100%;
 
+    height:auto;
+
 }
 
 section{
 
-    padding:100px 0;
+    padding:clamp(72px,8vw,100px) 0;
+
+    scroll-margin-top:110px;
 
 }

@@ -1,0 +1,60 @@
+name: Lint
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+      - master
+
+jobs:
+  lint:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install linters
+        run: npm install --global htmlhint stylelint stylelint-config-standard
+
+      - name: Lint HTML
+        run: |
+          cat > .htmlhintrc <<'EOF'
+          {
+            "tag-pair": true,
+            "attr-no-duplication": true,
+            "attr-value-not-empty": true,
+            "id-unique": true,
+            "alt-require": true,
+            "doctype-first": false,
+            "title-require": true,
+            "head-script-disabled": false,
+            "tagname-lowercase": true,
+            "attr-lowercase": true
+          }
+          EOF
+
+          htmlhint index.html
+
+      - name: Lint CSS
+        run: |
+          cat > .stylelintrc.json <<'EOF'
+          {
+            "extends": "stylelint-config-standard"
+          }
+          EOF
+
+          stylelint "css/**/*.css" "style.css"
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check script.js
+          find js -name '*.js' -print0 | xargs -0 -r node --check

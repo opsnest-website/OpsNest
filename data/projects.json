@@ -1,0 +1,23 @@
+[
+    {
+        "icon":"⚙️",
+        "title":"Automation Scripts",
+        "description":"Production-ready Shell, Bash and Python automation.",
+        "status":"warning",
+        "label":"In Progress"
+    },
+    {
+        "icon":"☸️",
+        "title":"DevOps Utilities",
+        "description":"Kubernetes, Docker, OpenShift and cloud tooling.",
+        "status":"warning",
+        "label":"In Progress"
+    },
+    {
+        "icon":"📚",
+        "title":"Documentation",
+        "description":"Tutorials, runbooks and best practices.",
+        "status":"success",
+        "label":"Growing"
+    }
+]

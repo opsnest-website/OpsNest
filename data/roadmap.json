@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Website",
+        "status": "completed"
+    },
+    {
+        "title": "Automation Scripts",
+        "status": "progress"
+    },
+    {
+        "title": "Documentation",
+        "status": "progress"
+    },
+    {
+        "title": "CLI",
+        "status": "planned"
+    }
+]

@@ -2,333 +2,198 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>OpsNest | Automation • DevOps • Documentation</title>
+    <!-- ========================================= -->
+    <!-- Basic Meta                                -->
+    <!-- ========================================= -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+
+    <title>OpsNest | Engineering Automation</title>
 
     <meta name="description"
-        content="OpsNest is an engineering initiative focused on automation scripts, DevOps tools, technical documentation, cloud utilities and open-source resources.">
+          content="OpsNest is an engineering platform focused on automation, DevOps, cloud infrastructure, technical documentation and developer tools.">
 
-    <meta name="theme-color" content="#0d1117">
+    <meta name="keywords"
+          content="Automation, DevOps, Kubernetes, Docker, Shell, Python, Linux, Terraform, Ansible, CI/CD">
 
-    <link rel="icon" href="assets/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <meta name="author"
+          content="OpsNest">
+
+    <meta name="theme-color"
+          content="#0B1120">
+
+    <!-- ========================================= -->
+    <!-- Open Graph                                -->
+    <!-- ========================================= -->
+
+    <meta property="og:title"
+          content="OpsNest">
+
+    <meta property="og:description"
+          content="Engineering Automation for Modern Infrastructure">
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:image"
+          content="assets/logo.svg">
+
+    <!-- ========================================= -->
+    <!-- Favicon                                   -->
+    <!-- ========================================= -->
+
+    <link rel="icon"
+          href="assets/favicon.png">
+
+    <!-- ========================================= -->
+    <!-- Google Fonts                              -->
+    <!-- ========================================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- ========================================= -->
+    <!-- CSS                                       -->
+    <!-- ========================================= -->
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+<!-- ========================================= -->
+<!-- Header                                    -->
+<!-- ========================================= -->
 
-    <header>
+<header class="header">
 
-        <div class="container">
+    <div class="container">
 
-            <a href="index.html" class="brand">
-                <img src="assets/logo.png" alt="OpsNest Logo">
+        <!-- Brand -->
 
-                <div class="brand-text">
-                    <span class="brand-title">OpsNest</span>
-                    <small>Engineering Automation</small>
-                </div>
+        <a href="#"
+           class="logo">
+
+            <img src="assets/logo.svg"
+                 alt="OpsNest Logo">
+
+            <div class="logo-text">
+
+                <span>OpsNest</span>
+
+                <small>
+                    Engineering Automation
+                </small>
+
+            </div>
+
+        </a>
+
+        <!-- Navigation -->
+
+        <nav>
+
+            <a href="#about">
+                About
             </a>
 
-            <nav>
+            <a href="#projects">
+                Projects
+            </a>
 
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#roadmap">Roadmap</a>
+            <a href="#technology">
+                Technology
+            </a>
 
-                <a href="https://github.com/opsnestin"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    GitHub
-                </a>
+            <a href="#roadmap">
+                Roadmap
+            </a>
 
-            </nav>
+            <a href="https://github.com/opsnestin"
+               target="_blank"
+               rel="noopener noreferrer">
 
-        </div>
+                GitHub
 
-    </header>
+            </a>
 
-    <!-- ================= HERO ================= -->
+        </nav>
 
-    <section class="hero">
+    </div>
 
-        <div class="container">
+</header>
 
-            <span class="hero-badge">
+<!-- ========================================= -->
+<!-- Hero                                      -->
+<!-- ========================================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <!-- Left -->
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+
                 🚀 Building in Public
-            </span>
+
+            </div>
 
             <h1>
-                Build Better.
-                <br>
-                Automate Everything.
+
+                Engineering Automation
+
+                <span>
+                    for Modern Infrastructure
+                </span>
+
             </h1>
 
             <p>
 
-                OpsNest is a growing ecosystem of automation scripts,
-                DevOps utilities, technical documentation, templates,
-                cloud tools and engineering resources designed for
-                developers and DevOps engineers.
+                OpsNest is an engineering platform dedicated to
+                automation, DevOps, cloud infrastructure,
+                technical documentation and developer tools.
+
+                Every project is built with a focus on
+                reliability, maintainability and
+                production-ready quality.
 
             </p>
 
-            <div class="buttons">
+            <div class="hero-buttons">
 
-                <a class="btn" href="#projects">
+                <a href="#projects"
+                   class="btn btn-primary">
+
                     Explore Projects
-                </a>
-
-                <a class="btn-outline"
-                    href="https://github.com/opsnestin"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    View GitHub
 
                 </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ================= ABOUT ================= -->
-
-    <section id="about">
-
-        <div class="container">
-
-            <h2>About OpsNest</h2>
-
-            <p>
-
-                OpsNest is a long-term engineering initiative focused on
-                building practical automation solutions for modern
-                infrastructure and software delivery.
-
-            </p>
-
-            <p>
-
-                Instead of scattered scripts and undocumented utilities,
-                OpsNest aims to provide reliable automation, production-ready
-                tools, comprehensive documentation and reusable resources
-                that engineers can confidently use in real-world environments.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ================= PROJECTS ================= -->
-
-    <section id="projects">
-
-        <div class="container">
-
-            <h2>Projects</h2>
-
-            <div class="grid">
-
-                <div class="card">
-
-                    <h3>⚙️ Automation Scripts</h3>
-
-                    <p>
-
-                        Production-ready Shell, Bash, Python,
-                        PowerShell and Linux automation.
-
-                    </p>
-
-                    <span>🚧 In Progress</span>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>☸️ DevOps Utilities</h3>
-
-                    <p>
-
-                        Kubernetes, Docker, OpenShift,
-                        CI/CD and infrastructure tooling.
-
-                    </p>
-
-                    <span>🚧 In Progress</span>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>📚 Documentation</h3>
-
-                    <p>
-
-                        Runbooks, tutorials,
-                        best practices,
-                        troubleshooting guides
-                        and architecture references.
-
-                    </p>
-
-                    <span>📈 Growing</span>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>🤖 AI Tools</h3>
-
-                    <p>
-
-                        AI-powered developer tools,
-                        infrastructure assistants,
-                        automation workflows
-                        and intelligent utilities.
-
-                    </p>
-
-                    <span>💡 Planned</span>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>☁️ Cloud Resources</h3>
-
-                    <p>
-
-                        AWS, Azure,
-                        Oracle Cloud,
-                        GCP and hybrid cloud automation.
-
-                    </p>
-
-                    <span>📅 Planned</span>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>🧰 Templates</h3>
-
-                    <p>
-
-                        Ready-to-use templates
-                        for CI/CD,
-                        Docker,
-                        Kubernetes,
-                        Terraform
-                        and GitHub Actions.
-
-                    </p>
-
-                    <span>📅 Planned</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ================= ROADMAP ================= -->
-
-    <section id="roadmap">
-
-        <div class="container">
-
-            <h2>Roadmap</h2>
-
-            <ul>
-
-                <li>✅ Website</li>
-
-                <li>🚧 Automation Scripts</li>
-
-                <li>🚧 DevOps Utilities</li>
-
-                <li>🚧 Documentation</li>
-
-                <li>📅 Templates</li>
-
-                <li>📅 CLI</li>
-
-                <li>📅 API</li>
-
-                <li>📅 Dashboard</li>
-
-                <li>🔬 AI Agents</li>
-
-                <li>🌎 Community Platform</li>
-
-            </ul>
-
-        </div>
-
-    </section>
-
-    <!-- ================= STATUS ================= -->
-
-    <section id="status">
-
-        <div class="container">
-
-            <h2>Current Status</h2>
-
-            <p>
-
-                OpsNest is under active development.
-
-                New automation scripts, documentation,
-                tools and utilities are continuously
-                being added.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <div class="container">
-
-            <img src="assets/logo.png"
-                alt="OpsNest Logo"
-                width="55">
-
-            <h3>OpsNest</h3>
-
-            <p>
-
-                Engineering Automation for Modern Infrastructure.
-
-            </p>
-
-            <p>
-
-                Building in public.
-                Every release moves the platform forward.
-
-            </p>
-
-            <div class="footer-links">
 
                 <a href="https://github.com/opsnestin"
-                    target="_blank"
-                    rel="noopener noreferrer">
+                   class="btn btn-secondary"
+                   target="_blank"
+                   rel="noopener noreferrer">
 
                     GitHub
 
@@ -336,19 +201,1101 @@
 
             </div>
 
+        </div>
+
+        <!-- Right -->
+
+        <div class="hero-image">
+
+            <div class="glow glow-blue"></div>
+
+            <div class="glow glow-purple"></div>
+
+            <img src="assets/logo.svg"
+                 alt="OpsNest Logo">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Statistics                                -->
+<!-- ========================================= -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat">
+
+                <h3>20+</h3>
+
+                <p>Projects Planned</p>
+
+            </div>
+
+            <div class="stat">
+
+                <h3>100%</h3>
+
+                <p>Open Source</p>
+
+            </div>
+
+            <div class="stat">
+
+                <h3>∞</h3>
+
+                <p>Learning</p>
+
+            </div>
+
+            <div class="stat">
+
+                <h3>24×7</h3>
+
+                <p>Building</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- About                                     -->
+<!-- ========================================= -->
+
+<section id="about"
+         class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+
+                About
+
+            </span>
+
+            <h2>
+
+                Building tools engineers
+                actually want to use.
+
+            </h2>
+
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-content">
+
+                <p>
+
+                    OpsNest is a long-term engineering initiative
+                    focused on creating production-ready automation,
+                    reusable DevOps tools, cloud utilities,
+                    technical documentation and engineering resources.
+
+                </p>
+
+                <p>
+
+                    Rather than publishing isolated scripts,
+                    every project is designed with documentation,
+                    maintainability and real-world usability in mind.
+
+                </p>
+
+                <p>
+
+                    The goal is simple:
+
+                    Build useful tools.
+                    Document everything.
+                    Share knowledge.
+
+                </p>
+
+            </div>
+
+            <div class="about-card">
+
+                <h3>
+
+                    Core Principles
+
+                </h3>
+
+                <ul>
+
+                    <li>Production Ready</li>
+
+                    <li>Open Source</li>
+
+                    <li>Documentation First</li>
+
+                    <li>Simple & Maintainable</li>
+
+                    <li>Automation Driven</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- CONTINUE FROM HERE IN PART 2                           -->
+<!-- ====================================================== -->
+ <!-- ========================================= -->
+<!-- Core Areas                                -->
+<!-- ========================================= -->
+
+<section id="core" class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+                Core Areas
+            </span>
+
+            <h2>
+                Everything revolves around engineering productivity.
+            </h2>
+
+            <p>
+                OpsNest brings together automation, documentation and
+                infrastructure tooling into one growing platform.
+            </p>
+
+        </div>
+
+        <div class="core-grid">
+
+            <article class="core-card">
+
+                <div class="core-icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    Automation
+                </h3>
+
+                <p>
+
+                    Production-ready automation using Shell,
+                    Bash, Python and PowerShell.
+
+                </p>
+
+            </article>
+
+            <article class="core-card">
+
+                <div class="core-icon">
+                    ☸️
+                </div>
+
+                <h3>
+                    DevOps
+                </h3>
+
+                <p>
+
+                    Kubernetes, Docker, CI/CD,
+                    Infrastructure as Code
+                    and Platform Engineering.
+
+                </p>
+
+            </article>
+
+            <article class="core-card">
+
+                <div class="core-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Documentation
+                </h3>
+
+                <p>
+
+                    Runbooks,
+                    tutorials,
+                    troubleshooting,
+                    architecture and best practices.
+
+                </p>
+
+            </article>
+
+            <article class="core-card">
+
+                <div class="core-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    AI & Developer Tools
+                </h3>
+
+                <p>
+
+                    AI-powered engineering,
+                    developer utilities
+                    and reusable tools.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Featured Projects                         -->
+<!-- ========================================= -->
+
+<section id="projects" class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+
+                Featured Projects
+
+            </span>
+
+            <h2>
+
+                Building practical tools for real-world operations.
+
+            </h2>
+
+            <p>
+
+                Every project is built to solve an engineering problem,
+                reduce manual effort and improve operational reliability.
+
+            </p>
+
+        </div>
+
+        <div class="projects-grid">
+
+            <article class="project-card">
+
+                <div class="project-header">
+
+                    <div class="project-icon">
+                        ⚙️
+                    </div>
+
+                    <span class="badge warning">
+
+                        In Progress
+
+                    </span>
+
+                </div>
+
+                <h3>
+
+                    Automation Scripts
+
+                </h3>
+
+                <p>
+
+                    A collection of production-ready automation scripts
+                    covering Linux, Shell, Python,
+                    PowerShell and DevOps operations.
+
+                </p>
+
+                <div class="tech-list">
+
+                    <span>Shell</span>
+
+                    <span>Python</span>
+
+                    <span>Linux</span>
+
+                </div>
+
+            </article>
+
+            <article class="project-card">
+
+                <div class="project-header">
+
+                    <div class="project-icon">
+                        ☸️
+                    </div>
+
+                    <span class="badge warning">
+
+                        In Progress
+
+                    </span>
+
+                </div>
+
+                <h3>
+
+                    DevOps Utilities
+
+                </h3>
+
+                <p>
+
+                    Kubernetes,
+                    Docker,
+                    OpenShift,
+                    Terraform,
+                    CI/CD
+                    and cloud automation.
+
+                </p>
+
+                <div class="tech-list">
+
+                    <span>Docker</span>
+
+                    <span>Kubernetes</span>
+
+                    <span>Terraform</span>
+
+                </div>
+
+            </article>
+
+            <article class="project-card">
+
+                <div class="project-header">
+
+                    <div class="project-icon">
+                        📚
+                    </div>
+
+                    <span class="badge success">
+
+                        Growing
+
+                    </span>
+
+                </div>
+
+                <h3>
+
+                    Documentation
+
+                </h3>
+
+                <p>
+
+                    Practical documentation,
+                    architecture diagrams,
+                    troubleshooting guides
+                    and engineering knowledge.
+
+                </p>
+
+                <div class="tech-list">
+
+                    <span>Guides</span>
+
+                    <span>Runbooks</span>
+
+                    <span>Architecture</span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Technology Stack                          -->
+<!-- ========================================= -->
+
+<section id="technology" class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+
+                Technology Stack
+
+            </span>
+
+            <h2>
+
+                Technologies powering OpsNest.
+
+            </h2>
+
+        </div>
+
+        <div class="technology-grid">
+
+            <span>Linux</span>
+
+            <span>Shell</span>
+
+            <span>Python</span>
+
+            <span>PowerShell</span>
+
+            <span>Docker</span>
+
+            <span>Kubernetes</span>
+
+            <span>OpenShift</span>
+
+            <span>Terraform</span>
+
+            <span>Ansible</span>
+
+            <span>Jenkins</span>
+
+            <span>GitHub Actions</span>
+
+            <span>GitLab CI</span>
+
+            <span>AWS</span>
+
+            <span>Azure</span>
+
+            <span>OCI</span>
+
+            <span>GCP</span>
+
+            <span>Prometheus</span>
+
+            <span>Grafana</span>
+
+            <span>MySQL</span>
+
+            <span>MongoDB</span>
+
+            <span>Redis</span>
+
+            <span>Nginx</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Why OpsNest                               -->
+<!-- ========================================= -->
+
+<section id="why" class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+
+                Why OpsNest?
+
+            </span>
+
+            <h2>
+
+                More than scripts. A growing engineering platform.
+
+            </h2>
+
+        </div>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+
+                <h3>
+
+                    🚀 Production Ready
+
+                </h3>
+
+                <p>
+
+                    Built for real engineering environments,
+                    not just demonstrations.
+
+                </p>
+
+            </div>
+
+            <div class="why-card">
+
+                <h3>
+
+                    📚 Documentation First
+
+                </h3>
+
+                <p>
+
+                    Every project is accompanied by
+                    practical documentation and examples.
+
+                </p>
+
+            </div>
+
+            <div class="why-card">
+
+                <h3>
+
+                    🌍 Open Source
+
+                </h3>
+
+                <p>
+
+                    Development happens in public
+                    with a focus on transparency
+                    and collaboration.
+
+                </p>
+
+            </div>
+
+            <div class="why-card">
+
+                <h3>
+
+                    ⚡ Built by an Engineer
+
+                </h3>
+
+                <p>
+
+                    Every project is inspired by
+                    real operational challenges
+                    encountered in day-to-day work.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- CONTINUE FROM HERE IN PART 3                           -->
+<!-- ====================================================== -->
+
+<!-- ========================================= -->
+<!-- Public Roadmap                            -->
+<!-- ========================================= -->
+
+<section id="roadmap" class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+                Public Roadmap
+            </span>
+
+            <h2>
+                Building OpsNest one step at a time.
+            </h2>
+
+            <p>
+                The roadmap is public and continuously evolving as new
+                projects, documentation and tools are developed.
+            </p>
+
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item completed">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <h3>Website Foundation</h3>
+
+                    <p>
+                        Initial branding, website structure and
+                        project architecture.
+                    </p>
+
+                    <span>Completed</span>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item progress">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <h3>Automation Scripts</h3>
+
+                    <p>
+                        Shell, Python and Linux automation
+                        library.
+                    </p>
+
+                    <span>In Progress</span>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item progress">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <h3>Documentation Portal</h3>
+
+                    <p>
+                        Best practices,
+                        tutorials,
+                        runbooks
+                        and architecture.
+                    </p>
+
+                    <span>In Progress</span>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item planned">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <h3>OpsNest CLI</h3>
+
+                    <p>
+                        Cross-platform command-line tools.
+                    </p>
+
+                    <span>Planned</span>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item planned">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <h3>REST API</h3>
+
+                    <p>
+                        APIs for automation
+                        and integrations.
+                    </p>
+
+                    <span>Planned</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Latest Updates                            -->
+<!-- ========================================= -->
+
+<section id="updates" class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+                Latest Updates
+            </span>
+
+            <h2>
+                Recent progress.
+            </h2>
+
+        </div>
+
+        <div class="updates-grid">
+
+            <article class="update-card">
+
+                <span class="update-date">
+                    July 2026
+                </span>
+
+                <h3>
+                    Website Started
+                </h3>
+
+                <p>
+
+                    Initial design,
+                    architecture
+                    and planning.
+
+                </p>
+
+            </article>
+
+            <article class="update-card">
+
+                <span class="update-date">
+                    Ongoing
+                </span>
+
+                <h3>
+                    Automation Library
+                </h3>
+
+                <p>
+
+                    Building production-ready
+                    engineering automation.
+
+                </p>
+
+            </article>
+
+            <article class="update-card">
+
+                <span class="update-date">
+                    Coming Soon
+                </span>
+
+                <h3>
+                    Documentation Portal
+                </h3>
+
+                <p>
+
+                    Detailed guides,
+                    tutorials
+                    and examples.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FAQ                                       -->
+<!-- ========================================= -->
+
+<section id="faq" class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+                FAQ
+            </span>
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+        </div>
+
+        <div class="faq-list">
+
+            <details>
+
+                <summary>
+                    What is OpsNest?
+                </summary>
+
+                <p>
+
+                    OpsNest is an engineering platform focused on
+                    automation, DevOps, documentation
+                    and developer tooling.
+
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>
+                    Is OpsNest open source?
+                </summary>
+
+                <p>
+
+                    Yes.
+                    Most projects will be published
+                    as open-source repositories.
+
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>
+                    Is everything available today?
+                </summary>
+
+                <p>
+
+                    No.
+
+                    OpsNest is being built in public.
+                    New projects are added continuously.
+
+                </p>
+
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Community                                 -->
+<!-- ========================================= -->
+
+<section id="community" class="section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+                Community
+            </span>
+
+            <h2>
+                Build together.
+            </h2>
+
+            <p>
+
+                Contributions,
+                ideas,
+                bug reports
+                and discussions
+                are always welcome.
+
+            </p>
+
+        </div>
+
+        <div class="community-buttons">
+
+            <a href="https://github.com/opsnestin"
+               target="_blank"
+                    rel="noopener noreferrer"
+               class="btn btn-primary">
+
+                View GitHub
+
+            </a>
+
+            <a href="#contact"
+               class="btn btn-secondary">
+
+                Contact
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- CTA                                       -->
+<!-- ========================================= -->
+
+<section id="contact" class="cta">
+
+    <div class="container">
+
+        <h2>
+
+            Ready to explore OpsNest?
+
+        </h2>
+
+        <p>
+
+            Follow the journey,
+            explore projects,
+            contribute
+            and build together.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="https://github.com/opsnestin"
+               target="_blank"
+                    rel="noopener noreferrer"
+               class="btn btn-primary">
+
+                GitHub
+
+            </a>
+
+            <a href="#projects"
+               class="btn btn-secondary">
+
+                Explore Projects
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Footer                                    -->
+<!-- ========================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-brand">
+
+            <img src="assets/logo.svg"
+                 alt="OpsNest Logo">
+
+            <h3>
+
+                OpsNest
+
+            </h3>
+
+            <p>
+
+                Engineering Automation
+                for Modern Infrastructure.
+
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#technology">
+                Technology
+            </a>
+
+            <a href="#roadmap">
+                Roadmap
+            </a>
+
+            <a href="https://github.com/opsnestin"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                GitHub
+
+            </a>
+
+        </div>
+
+        <div class="footer-bottom">
+
             <small>
 
                 © 2026 OpsNest.
-                All Rights Reserved.
+                Built in Public.
 
             </small>
 
         </div>
 
-    </footer>
+    </div>
 
-    <script src="script.js"></script>
+</footer>
+
+<!-- ========================================= -->
+<!-- JavaScript                                -->
+<!-- ========================================= -->
+
+<script src="js/navigation.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/app.js"></script>
 
 </body>
-
 </html>

@@ -1,0 +1,68 @@
+/*
+=========================================
+OpsNest Variables
+=========================================
+*/
+
+:root{
+
+    /* Colors */
+
+    --background:#0B1120;
+
+    --surface:#111827;
+
+    --surface-2:#1F2937;
+
+    --border:#243244;
+
+    --primary:#2563EB;
+
+    --primary-hover:#1D4ED8;
+
+    --secondary:#3B82F6;
+
+    --success:#22C55E;
+
+    --warning:#F59E0B;
+
+    --danger:#EF4444;
+
+    --text:#F8FAFC;
+
+    --muted:#94A3B8;
+
+
+    /* Typography */
+
+    --heading-font:"Manrope",sans-serif;
+
+    --body-font:"Inter",sans-serif;
+
+
+    /* Radius */
+
+    --radius-sm:8px;
+
+    --radius:14px;
+
+    --radius-lg:20px;
+
+
+    /* Shadow */
+
+    --shadow:
+
+        0 12px 35px rgba(0,0,0,.25);
+
+
+    /* Transition */
+
+    --transition:.25s ease;
+
+
+    /* Layout */
+
+    --container:1200px;
+
+}

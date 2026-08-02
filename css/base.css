@@ -1,0 +1,85 @@
+/*
+=========================================
+Reset
+=========================================
+*/
+
+*,
+*::before,
+*::after{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--background);
+
+    color:var(--text);
+
+    font-family:var(--body-font);
+
+    line-height:1.7;
+
+    overflow-x:hidden;
+
+}
+
+/*
+=========================================
+Container
+=========================================
+*/
+
+.container{
+
+    width:min(92%,var(--container));
+
+    margin:auto;
+
+}
+
+/*
+=========================================
+Typography
+=========================================
+*/
+
+h1,h2,h3,h4{
+
+    font-family:var(--heading-font);
+
+}
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+section{
+
+    padding:100px 0;
+
+}

@@ -1,0 +1,67 @@
+/*
+=========================================
+Tablet
+=========================================
+*/
+
+@media(max-width:900px){
+
+    nav{
+
+        gap:20px;
+
+    }
+
+}
+
+/*
+=========================================
+Mobile
+=========================================
+*/
+
+@media(max-width:700px){
+
+    .header .container{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:20px 0;
+
+    }
+
+    nav{
+
+        margin-top:20px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+}
+
+@media(max-width:1000px){
+
+    .project-grid,
+    .projects-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .project-grid,
+    .projects-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

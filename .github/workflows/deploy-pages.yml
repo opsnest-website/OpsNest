@@ -1,6 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
+  push:
+    branches:
+      - main
+      - master
   pull_request:
     types:
       - closed
@@ -19,21 +23,36 @@ concurrency:
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
+    if: github.event_name == 'push' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (including Markbase submodule)
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Prepare site output
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: modules/markbase/package-lock.json
+
+      - name: Build Markbase learning module
+        working-directory: modules/markbase
+        run: |
+          npm ci
+          npm run check
+          npm run build
+
+      - name: Prepare OpsNest site output
         run: |
           rm -rf dist
           mkdir -p dist
-
           rsync -a \
             --exclude '.git/' \
             --exclude '.github/' \
@@ -44,8 +63,11 @@ jobs:
             --exclude '*.md' \
             --exclude '*.log' \
             --exclude '*.tmp' \
+            --exclude 'modules/' \
             ./ dist/
 
+          mkdir -p dist/learn
+          rsync -a modules/markbase/dist/ dist/learn/
           touch dist/.nojekyll
 
       - name: Upload Pages artifact

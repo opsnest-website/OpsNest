@@ -1,3 +1,6 @@
 [submodule "modules/markbase"]
 	path = modules/markbase
 	url = https://github.com/opsnest-website/opsnest-markbase.git
+[submodule "modules/blogs"]
+	path = modules/blogs
+	url = https://github.com/opsnest-website/opsnest-blogs.git

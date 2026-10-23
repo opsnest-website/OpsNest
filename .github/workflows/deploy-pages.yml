@@ -27,50 +27,102 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository (including Markbase submodule)
+      - name: Checkout repository including submodules
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Configure Pages
+      - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-          cache-dependency-path: modules/markbase/package-lock.json
 
-      - name: Build Markbase learning module
+      # Build Markbase learning module
+      - name: Install Markbase dependencies
         working-directory: modules/markbase
         run: |
-          npm ci
-          npm run check
-          npm run build
+          set -euo pipefail
 
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            echo "::warning::Markbase package-lock.json is missing; generating dependencies for this build."
+            npm install
+          fi
+
+      - name: Validate Markbase
+        working-directory: modules/markbase
+        run: npm run check --if-present
+
+      - name: Build Markbase
+        working-directory: modules/markbase
+        run: npm run build
+
+      # Build Blogs module
+      - name: Install Blogs dependencies
+        working-directory: modules/blogs
+        run: |
+          set -euo pipefail
+
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            echo "::warning::Blogs package-lock.json is missing; generating dependencies for this build."
+            npm install
+          fi
+
+      - name: Validate Blogs
+        working-directory: modules/blogs
+        run: npm run check --if-present
+
+      - name: Build Blogs
+        working-directory: modules/blogs
+        run: npm run build
+
+      # Prepare the main website and combine module builds
       - name: Prepare OpsNest site output
         run: |
+          set -euo pipefail
+
+          test -d modules/markbase/dist || {
+            echo "::error::Markbase build output modules/markbase/dist was not created."
+            exit 1
+          }
+
+          test -d modules/blogs/dist || {
+            echo "::error::Blogs build output modules/blogs/dist was not created."
+            exit 1
+          }
+
           rm -rf dist
           mkdir -p dist
+
           rsync -a \
-            --exclude '.git/' \
-            --exclude '.github/' \
-            --exclude '.venv/' \
-            --exclude '.venv-logo/' \
-            --exclude 'README.md' \
-            --exclude 'version_1.0.md' \
-            --exclude '*.md' \
-            --exclude '*.log' \
-            --exclude '*.tmp' \
-            --exclude 'modules/' \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.venv/' \
+            --exclude='.venv-logo/' \
+            --exclude='README.md' \
+            --exclude='version_1.0.md' \
+            --exclude='*.md' \
+            --exclude='*.log' \
+            --exclude='*.tmp' \
+            --exclude='modules/' \
+            --exclude='node_modules/' \
+            --exclude='dist/' \
             ./ dist/
 
-          mkdir -p dist/learn
+          mkdir -p dist/learn dist/blog
+
           rsync -a modules/markbase/dist/ dist/learn/
+          rsync -a modules/blogs/dist/ dist/blog/
+
           touch dist/.nojekyll
 
-      - name: Upload Pages artifact
+      - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
@@ -78,6 +130,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

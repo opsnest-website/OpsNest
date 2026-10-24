@@ -153,11 +153,101 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }} 
 
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  health-check:
+    name: Verify deployed endpoints
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check deployed website endpoints
+        env:
+          SITE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          set -euo pipefail
+
+          SITE_URL="${SITE_URL%/}"
+
+          if [ -z "${SITE_URL}" ]; then
+            echo "::error::Deployment URL is empty."
+            exit 1
+          fi
+
+          echo "Checking deployed site: ${SITE_URL}"
+
+          check_endpoint() {
+            local path="$1"
+            local expected_content="${2:-}"
+            local url="${SITE_URL}${path}"
+            local body
+            local status
+            local attempt
+            local max_attempts=10
+
+            echo ""
+            echo "Checking: ${url}"
+
+            for attempt in $(seq 1 "${max_attempts}"); do
+              body="$(mktemp)"
+
+              status="$(curl \
+                --silent \
+                --show-error \
+                --location \
+                --connect-timeout 10 \
+                --max-time 30 \
+                --output "${body}" \
+                --write-out '%{http_code}' \
+                "${url}" 2>/dev/null || true)"
+
+              if [ "${status}" = "200" ]; then
+                if [ -n "${expected_content}" ] &&
+                   ! grep -Fq "${expected_content}" "${body}"; then
+                  echo "Attempt ${attempt}/${max_attempts}: HTTP 200, but expected content was missing."
+                  rm -f "${body}"
+                else
+                  echo "PASS: ${url} returned HTTP ${status}"
+                  rm -f "${body}"
+                  return 0
+                fi
+              else
+                echo "Attempt ${attempt}/${max_attempts}: HTTP ${status:-request failed}"
+                rm -f "${body}"
+              fi
+
+              if [ "${attempt}" -lt "${max_attempts}" ]; then
+                sleep 10
+              fi
+            done
+
+            echo "::error::Health check failed for ${url}"
+            return 1
+          }
+
+          # Main website
+          check_endpoint "/" "<html"
+
+          # Learning platform
+          check_endpoint "/learn/" "<html"
+
+          # Blog platform
+          check_endpoint "/blog/" "<html"
+
+          # Optional: check the sample blog image if it is deployed.
+          # Uncomment this only when the image exists at this exact path.
+          # check_endpoint "/blog/assets/devops_seamless.svg"
+
+          echo ""
+          echo "All configured endpoint health checks passed."        

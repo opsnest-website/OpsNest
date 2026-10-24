@@ -5,12 +5,16 @@ on:
     branches:
       - main
       - master
+
   pull_request:
     types:
       - closed
     branches:
       - main
       - master
+
+  # Allow manual deployment from GitHub Actions UI
+  workflow_dispatch:
 
 permissions:
   contents: read

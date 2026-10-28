@@ -1,0 +1,26 @@
+<section id="roadmap" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Public Roadmap</span>
+            <h2>Building OpsNest one step at a time.</h2>
+            <p>
+                The roadmap is public and continuously evolving as new
+                projects, documentation and tools are developed.
+            </p>
+        </div>
+
+        <!-- Milestones come from data/roadmap.json (status: completed | progress | planned) -->
+        <div class="timeline">
+            <!-- @each milestone in roadmap -->
+            <div class="timeline-item {{ milestone.status }}">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>{{ milestone.title }}</h3>
+                    <p>{{ milestone.description }}</p>
+                    <span>{{ milestone.label }}</span>
+                </div>
+            </div>
+            <!-- @end -->
+        </div>
+    </div>
+</section>

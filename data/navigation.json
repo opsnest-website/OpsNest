@@ -1,0 +1,31 @@
+[
+    {
+        "label": "About",
+        "href": "#about"
+    },
+    {
+        "label": "Projects",
+        "href": "#projects"
+    },
+    {
+        "label": "Technology",
+        "href": "#technology"
+    },
+    {
+        "label": "Learn",
+        "href": "learn/"
+    },
+    {
+        "label": "Blog",
+        "href": "blog/"
+    },
+    {
+        "label": "Roadmap",
+        "href": "#roadmap"
+    },
+    {
+        "label": "GitHub",
+        "href": "https://github.com/opsnestin",
+        "external": true
+    }
+]

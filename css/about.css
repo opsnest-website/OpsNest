@@ -1,0 +1,89 @@
+/*
+=========================================
+About
+=========================================
+*/
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:minmax(0,1.4fr) minmax(280px,.8fr);
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+.about-content p + p{
+
+    margin-top:18px;
+
+}
+
+.about-card{
+
+    padding:30px;
+
+}
+
+.about-card ul{
+
+    list-style:none;
+
+    display:grid;
+
+    gap:14px;
+
+    margin-top:20px;
+
+}
+
+.about-card li{
+
+    position:relative;
+
+    padding-left:22px;
+
+}
+
+.about-card li::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:.7em;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+}
+
+@media(max-width:900px){
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .about-card{
+
+        padding:24px;
+
+    }
+
+}

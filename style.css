@@ -42,7 +42,7 @@
     --radius:14px;
 
     --shadow:
-        0 15px 30px rgba(0,0,0,.25);
+        0 15px 30px rgb(0 0 0 / 25%);
 
 }
 
@@ -62,7 +62,7 @@ body{
     background:var(--background);
     color:var(--text);
 
-    font-family:"Inter",sans-serif;
+    font-family:Inter,sans-serif;
 
     line-height:1.7;
 
@@ -117,9 +117,9 @@ img{
 
     backdrop-filter:blur(10px);
 
-    background:rgba(11,17,32,.82);
+    background:rgb(11 17 32 / 82%);
 
-    border-bottom:1px solid rgba(255,255,255,.06);
+    border-bottom:1px solid rgb(255 255 255 / 6%);
 
 }
 
@@ -175,7 +175,7 @@ img{
 
     font-size:1.25rem;
 
-    font-family:"Manrope",sans-serif;
+    font-family:Manrope,sans-serif;
 
     font-weight:800;
 
@@ -252,9 +252,9 @@ nav a:hover{
 
     border-radius:999px;
 
-    background:rgba(37,99,235,.12);
+    background:rgb(37 99 235 / 12%);
 
-    border:1px solid rgba(37,99,235,.35);
+    border:1px solid rgb(37 99 235 / 35%);
 
     color:#8DB8FF;
 
@@ -267,7 +267,7 @@ nav a:hover{
 
 .hero h1{
 
-    font-family:"Manrope",sans-serif;
+    font-family:Manrope,sans-serif;
 
     font-size:4rem;
 
@@ -379,7 +379,7 @@ nav a:hover{
 
     font-size:2.2rem;
 
-    font-family:"Manrope",sans-serif;
+    font-family:Manrope,sans-serif;
 
 }
 
@@ -482,7 +482,7 @@ nav a:hover{
 
 .progress{
 
-    background:rgba(245,158,11,.12);
+    background:rgb(245 158 11 / 12%);
 
     color:#FBBF24;
 
@@ -491,7 +491,7 @@ nav a:hover{
 
 .growing{
 
-    background:rgba(34,197,94,.12);
+    background:rgb(34 197 94 / 12%);
 
     color:#4ADE80;
 
@@ -534,7 +534,7 @@ footer{
 
     text-align:center;
 
-    border-top:1px solid rgba(255,255,255,.06);
+    border-top:1px solid rgb(255 255 255 / 6%);
 
     margin-top:100px;
 
@@ -552,7 +552,7 @@ footer{
 
 footer h3{
 
-    font-family:"Manrope",sans-serif;
+    font-family:Manrope,sans-serif;
 
     margin-bottom:12px;
 

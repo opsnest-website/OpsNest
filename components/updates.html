@@ -1,0 +1,24 @@
+<section id="updates" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Latest Updates</span>
+            <h2>Recent progress.</h2>
+        </div>
+
+        <!-- Updates come from data/updates.json; add "href" and "linkText" to make a card a link -->
+        <div class="updates-grid">
+            <!-- @each update in updates -->
+            <!-- @if update.href -->
+            <a href="{{ update.href }}" class="update-card update-card-link">
+                <!-- @include components/partials/update-card.html -->
+                <span class="card-link-text">{{ update.linkText }}</span>
+            </a>
+            <!-- @else -->
+            <article class="update-card">
+                <!-- @include components/partials/update-card.html -->
+            </article>
+            <!-- @end -->
+            <!-- @end -->
+        </div>
+    </div>
+</section>

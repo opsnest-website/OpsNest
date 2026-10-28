@@ -1,16 +1,18 @@
 name: Test
 
+# Runs on every PR (so problems block the merge) and on pushes to main.
 on:
   pull_request:
-    types:
-      - closed
+    branches:
+      - main
+      - master
+  push:
     branches:
       - main
       - master
 
 jobs:
   smoke-test:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -22,9 +24,20 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Test template engine
+        run: npm test
+
+      - name: Build site
+        run: npm run build
+
       - name: Start local server
         run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/opsnest-server.log 2>&1 &
+          python3 -m http.server 4173 --bind 127.0.0.1 -d dist >/tmp/opsnest-server.log 2>&1 &
           echo $! > /tmp/opsnest-server.pid
 
       - name: Wait for server
@@ -46,15 +59,26 @@ jobs:
           curl -fsS http://127.0.0.1:4173/ | grep -q 'OpsNest | Engineering Automation'
 
           for path in \
-            assets/logo.svg \
-            assets/favicon.png \
-            css/base.css \
-            css/components.css \
-            css/responsive.css \
+            css/style.css \
             js/app.js \
+            robots.txt \
+            sitemap.xml \
             CNAME
           do
-            test -f "$path"
+            test -f "dist/$path"
+          done
+
+          # Every asset the page points to is published and not empty (favicon.png once shipped as 0 bytes).
+          for path in $(grep -o 'assets/[A-Za-z0-9._-]*' dist/index.html | sort -u); do
+            test -s "dist/$path" || { echo "Missing or empty: $path"; exit 1; }
+          done
+
+          # Every section rendered, and no source files leaked into the output.
+          for id in about core projects technology why roadmap blog updates faq community contact; do
+            grep -q "id=\"$id\"" dist/index.html || { echo "Missing section #$id"; exit 1; }
+          done
+          for path in components data scripts package.json README.md; do
+            test ! -e "dist/$path" || { echo "Source file published: $path"; exit 1; }
           done
 
       - name: Stop local server

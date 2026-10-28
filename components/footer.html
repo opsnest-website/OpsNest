@@ -1,0 +1,22 @@
+<footer>
+    <div class="container">
+        <div class="footer-brand">
+            <picture>
+                <source srcset="assets/mark-light-bg.png" media="(prefers-color-scheme: light)" data-theme-source="light">
+                <img src="assets/mark-dark-bg.png" width="64" height="64" alt="" loading="lazy">
+            </picture>
+            <h3>{{ site.name }}</h3>
+            <p>{{ site.headline }}.</p>
+        </div>
+
+        <div class="footer-links">
+            <!-- @each link in navigation -->
+            <!-- @include components/partials/nav-link.html -->
+            <!-- @end -->
+        </div>
+
+        <div class="footer-bottom">
+            <small>{{ site.copyright }} Built in Public.</small>
+        </div>
+    </div>
+</footer>

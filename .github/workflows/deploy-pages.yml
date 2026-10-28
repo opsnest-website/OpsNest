@@ -1,14 +1,9 @@
 name: Deploy to GitHub Pages
 
+# A merged PR is a push to main, so `push` alone covers merges (a separate
+# pull_request:closed trigger would deploy every merge twice).
 on:
   push:
-    branches:
-      - main
-      - master
-
-  pull_request:
-    types:
-      - closed
     branches:
       - main
       - master
@@ -27,7 +22,6 @@ concurrency:
 
 jobs:
   build:
-    if: github.event_name == 'push' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -37,26 +31,11 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      # Always fetch the latest code from each submodule's main branch.
-      - name: Update submodules to latest main
-        run: |
-          set -euo pipefail
-
-          for module in modules/markbase modules/blogs; do
-            echo "Updating ${module} from origin/main"
-
-            if [ ! -d "${module}/.git" ] && \
-               [ ! -f "${module}/.git" ]; then
-              echo "::error::Submodule not initialized: ${module}"
-              exit 1
-            fi
-
-            git -C "${module}" fetch origin main
-            git -C "${module}" checkout -B main origin/main
-
-            echo "Checked out commit:"
-            git -C "${module}" log -1 --format='%h %s'
-          done
+      # Build exactly the Markbase/Blogs commits pinned in this repository, so every
+      # deploy is reproducible and reviewable. Dependabot (.github/dependabot.yml)
+      # opens a PR when a module's main branch moves; merging it deploys the update.
+      - name: Show pinned module commits
+        run: git submodule status
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
@@ -123,23 +102,10 @@ jobs:
             exit 1
           }
 
-          rm -rf dist
-          mkdir -p dist
-
-          rsync -a \
-            --exclude='.git/' \
-            --exclude='.github/' \
-            --exclude='.venv/' \
-            --exclude='.venv-logo/' \
-            --exclude='README.md' \
-            --exclude='version_1.0.md' \
-            --exclude='*.md' \
-            --exclude='*.log' \
-            --exclude='*.tmp' \
-            --exclude='modules/' \
-            --exclude='node_modules/' \
-            --exclude='dist/' \
-            ./ dist/
+          # Renders index.html + components/ + data/ and copies only the
+          # published files (see STATIC_FILES in scripts/build.mjs).
+          npm test
+          npm run build
 
           mkdir -p dist/learn dist/blog
 
@@ -248,6 +214,8 @@ jobs:
 
           # Blog platform
           check_endpoint "/blog/" "<html"
+
+          check_endpoint "/sitemap.xml" "<urlset"
 
           # Optional: check the sample blog image if it is deployed.
           # Uncomment this only when the image exists at this exact path.

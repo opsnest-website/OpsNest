@@ -36,10 +36,12 @@ git submodule update --remote modules/markbase
 
 A submodule pins a specific Markbase commit in OpsNest. Updating Markbase's own repository does not automatically update the pinned commit in OpsNest; run the update command, review, commit and push the new gitlink.
 
+Dependabot (`.github/dependabot.yml`) checks both modules daily and opens a PR that bumps the pinned commit when a module's `main` has moved. Merging that PR is what publishes Markbase or Blog changes to the live site. Each module repository runs its own CI (`.github/workflows/ci.yml`) on every PR, so a commit is already type-checked and built before OpsNest pins it.
+
 ## Deployment behavior
 
 The `deploy-pages.yml` workflow:
-1. Checks out OpsNest and its Markbase submodule.
+1. Checks out OpsNest and its submodules at exactly the pinned commits (it does not pull the latest module `main`).
 2. Runs `npm ci`, `npm run check` and `npm run build` in `modules/markbase`.
 3. Publishes Markbase's generated `dist/` into the website output at `dist/learn/`.
 4. Deploys the OpsNest site and Markbase together to GitHub Pages.

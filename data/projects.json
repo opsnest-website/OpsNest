@@ -1,23 +1,38 @@
 [
     {
-        "icon":"⚙️",
-        "title":"Automation Scripts",
-        "description":"Production-ready Shell, Bash and Python automation.",
-        "status":"warning",
-        "label":"In Progress"
+        "icon": "⚙️",
+        "title": "Automation Scripts",
+        "status": "warning",
+        "label": "In Progress",
+        "description": "A collection of production-ready automation scripts covering Linux, Shell, Python, PowerShell and DevOps operations.",
+        "tags": [
+            "Shell",
+            "Python",
+            "Linux"
+        ]
     },
     {
-        "icon":"☸️",
-        "title":"DevOps Utilities",
-        "description":"Kubernetes, Docker, OpenShift and cloud tooling.",
-        "status":"warning",
-        "label":"In Progress"
+        "icon": "☸️",
+        "title": "DevOps Utilities",
+        "status": "warning",
+        "label": "In Progress",
+        "description": "Kubernetes, Docker, OpenShift, Terraform, CI/CD and cloud automation.",
+        "tags": [
+            "Docker",
+            "Kubernetes",
+            "Terraform"
+        ]
     },
     {
-        "icon":"📚",
-        "title":"Documentation",
-        "description":"Tutorials, runbooks and best practices.",
-        "status":"success",
-        "label":"Growing"
+        "icon": "📚",
+        "title": "Documentation",
+        "status": "success",
+        "label": "Growing",
+        "description": "Practical documentation, architecture diagrams, troubleshooting guides and engineering knowledge.",
+        "tags": [
+            "Guides",
+            "Runbooks",
+            "Architecture"
+        ]
     }
 ]

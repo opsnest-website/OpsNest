@@ -1,0 +1,31 @@
+[
+    {
+        "date": "July 2026",
+        "title": "Website Started",
+        "description": "Initial design, architecture and planning."
+    },
+    {
+        "date": "Ongoing",
+        "title": "Automation Library",
+        "description": "Building production-ready engineering automation."
+    },
+    {
+        "date": "Available",
+        "title": "Interactive Learning Platform",
+        "href": "learn/",
+        "linkText": "Start Learning →",
+        "description": "Structured learning paths, hands-on exercises, interactive quizzes and practical examples for mastering programming and DevOps technologies."
+    },
+    {
+        "date": "Growing",
+        "title": "Engineering Blogs",
+        "href": "blog/",
+        "linkText": "Explore Blogs →",
+        "description": "Practical DevOps tutorials, automation guides, infrastructure troubleshooting, architecture insights and real-world engineering experiences."
+    },
+    {
+        "date": "Coming Soon",
+        "title": "Documentation Portal",
+        "description": "Detailed guides, tutorials and examples."
+    }
+]

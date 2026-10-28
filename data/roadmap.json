@@ -1,18 +1,32 @@
 [
     {
-        "title": "Website",
-        "status": "completed"
+        "title": "Website Foundation",
+        "status": "completed",
+        "label": "Completed",
+        "description": "Initial branding, website structure and project architecture."
     },
     {
         "title": "Automation Scripts",
-        "status": "progress"
+        "status": "progress",
+        "label": "In Progress",
+        "description": "Shell, Python and Linux automation library."
     },
     {
-        "title": "Documentation",
-        "status": "progress"
+        "title": "Documentation Portal",
+        "status": "progress",
+        "label": "In Progress",
+        "description": "Best practices, tutorials, runbooks and architecture."
     },
     {
-        "title": "CLI",
-        "status": "planned"
+        "title": "OpsNest CLI",
+        "status": "planned",
+        "label": "Planned",
+        "description": "Cross-platform command-line tools."
+    },
+    {
+        "title": "REST API",
+        "status": "planned",
+        "label": "Planned",
+        "description": "APIs for automation and integrations."
     }
 ]

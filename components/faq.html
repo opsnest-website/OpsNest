@@ -1,0 +1,18 @@
+<section id="faq" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">FAQ</span>
+            <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <!-- Questions come from data/faq.json -->
+        <div class="faq-list">
+            <!-- @each item in faq -->
+            <details>
+                <summary>{{ item.question }}</summary>
+                <p>{{ item.answer }}</p>
+            </details>
+            <!-- @end -->
+        </div>
+    </div>
+</section>

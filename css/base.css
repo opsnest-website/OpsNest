@@ -92,6 +92,18 @@ img{
 
 }
 
+/*
+Logos are <picture> elements with a light-theme <source>; js/app.js points
+that source at the visitor's theme choice. display:contents keeps the
+wrapper out of layout, so the <img> is styled as before.
+*/
+
+picture{
+
+    display:contents;
+
+}
+
 section{
 
     padding:clamp(72px,8vw,100px) 0;

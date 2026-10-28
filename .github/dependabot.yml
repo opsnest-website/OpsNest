@@ -1,0 +1,10 @@
+version: 2
+updates:
+  # Opens a PR whenever modules/markbase or modules/blogs has new commits on main.
+  # Merging that PR is what publishes module changes to the live site.
+  - package-ecosystem: gitsubmodule
+    directory: /
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: "chore(modules)"

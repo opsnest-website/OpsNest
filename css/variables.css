@@ -2,9 +2,18 @@
 =========================================
 OpsNest Variables
 =========================================
+
+Dark is the default theme. The light theme overrides the colour
+tokens below in two places: when the system prefers light and the
+visitor has not picked dark, and when the visitor picks light.
+js/app.js sets <html data-theme="light|dark"> from the theme switch;
+no data-theme means "follow the system".
 */
 
 :root{
+
+    color-scheme:dark;
+
 
     /* Colors */
 
@@ -33,6 +42,33 @@ OpsNest Variables
     --muted:#94A3B8;
 
 
+    /* Theme-specific accents */
+
+    --header-bg:rgb(11 17 32 / 92%);
+
+    --header-bg-solid:rgb(11 17 32 / 98%);
+
+    --header-border:rgb(255 255 255 / 5%);
+
+    --tint:rgb(255 255 255 / 3%);
+
+    --line:rgb(255 255 255 / 8%);
+
+    --label-text:#7FB3FF;
+
+    --hero-badge-text:#8DB8FF;
+
+    --link-accent:#5EEAD4;
+
+    --badge-success:#4ADE80;
+
+    --badge-warning:#FBBF24;
+
+    --badge-info:#60A5FA;
+
+    --glow-opacity:.45;
+
+
     /* Typography */
 
     --heading-font:"Manrope",sans-serif;
@@ -53,7 +89,11 @@ OpsNest Variables
 
     --shadow:
 
-        0 12px 35px rgba(0,0,0,.25);
+        0 12px 35px rgb(0 0 0 / 25%);
+
+    --shadow-hover:
+
+        0 20px 40px rgb(0 0 0 / 30%);
 
 
     /* Transition */
@@ -64,5 +104,118 @@ OpsNest Variables
     /* Layout */
 
     --container:1920px;
+
+}
+
+/*
+Light theme. The two blocks must stay identical: CSS cannot share
+one declaration list between a media query and an attribute selector.
+*/
+
+@media(prefers-color-scheme:light){
+
+    :root:not([data-theme="dark"]){
+
+        color-scheme:light;
+
+        --background:#F8FAFC;
+
+        --surface:#FFF;
+
+        --surface-2:#F1F5F9;
+
+        --border:#E2E8F0;
+
+        --secondary:#2563EB;
+
+        --text:#0F172A;
+
+        --muted:#475569;
+
+        --header-bg:rgb(248 250 252 / 92%);
+
+        --header-bg-solid:rgb(248 250 252 / 98%);
+
+        --header-border:rgb(15 23 42 / 8%);
+
+        --tint:rgb(15 23 42 / 4%);
+
+        --line:rgb(15 23 42 / 10%);
+
+        --label-text:#1D4ED8;
+
+        --hero-badge-text:#1D4ED8;
+
+        --link-accent:#0F766E;
+
+        --badge-success:#15803D;
+
+        --badge-warning:#B45309;
+
+        --badge-info:#1D4ED8;
+
+        --glow-opacity:.16;
+
+        --shadow:
+
+            0 12px 35px rgb(15 23 42 / 8%);
+
+        --shadow-hover:
+
+            0 20px 40px rgb(15 23 42 / 12%);
+
+    }
+
+}
+
+:root[data-theme="light"]{
+
+    color-scheme:light;
+
+    --background:#F8FAFC;
+
+    --surface:#FFF;
+
+    --surface-2:#F1F5F9;
+
+    --border:#E2E8F0;
+
+    --secondary:#2563EB;
+
+    --text:#0F172A;
+
+    --muted:#475569;
+
+    --header-bg:rgb(248 250 252 / 92%);
+
+    --header-bg-solid:rgb(248 250 252 / 98%);
+
+    --header-border:rgb(15 23 42 / 8%);
+
+    --tint:rgb(15 23 42 / 4%);
+
+    --line:rgb(15 23 42 / 10%);
+
+    --label-text:#1D4ED8;
+
+    --hero-badge-text:#1D4ED8;
+
+    --link-accent:#0F766E;
+
+    --badge-success:#15803D;
+
+    --badge-warning:#B45309;
+
+    --badge-info:#1D4ED8;
+
+    --glow-opacity:.16;
+
+    --shadow:
+
+        0 12px 35px rgb(15 23 42 / 8%);
+
+    --shadow-hover:
+
+        0 20px 40px rgb(15 23 42 / 12%);
 
 }

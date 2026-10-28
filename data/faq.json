@@ -1,0 +1,14 @@
+[
+    {
+        "question": "What is OpsNest?",
+        "answer": "OpsNest is an engineering platform focused on automation, DevOps, documentation and developer tooling."
+    },
+    {
+        "question": "Is OpsNest open source?",
+        "answer": "Yes. Most projects will be published as open-source repositories."
+    },
+    {
+        "question": "Is everything available today?",
+        "answer": "No. OpsNest is being built in public. New projects are added continuously."
+    }
+]

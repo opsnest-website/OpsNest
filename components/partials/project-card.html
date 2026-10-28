@@ -1,0 +1,16 @@
+<article class="project-card">
+    <div class="project-header">
+        <div class="project-icon">{{ card.icon }}</div>
+        <span class="badge {{ card.status }}">{{ card.label }}</span>
+    </div>
+
+    <h3>{{ card.title }}</h3>
+
+    <p>{{ card.description }}</p>
+
+    <div class="tech-list">
+        <!-- @each tag in card.tags -->
+        <span>{{ tag }}</span>
+        <!-- @end -->
+    </div>
+</article>

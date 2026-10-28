@@ -1,0 +1,57 @@
+/*
+=========================================
+FAQ
+=========================================
+*/
+
+.faq-list{
+
+    display:grid;
+
+    gap:16px;
+
+}
+
+details{
+
+    overflow:hidden;
+
+}
+
+details + details{
+
+    margin-top:16px;
+
+}
+
+summary{
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    list-style:none;
+
+}
+
+summary::-webkit-details-marker{
+
+    display:none;
+
+}
+
+details p{
+
+    margin-top:14px;
+
+}
+
+@media(max-width:700px){
+
+    .faq-list details summary{
+
+        word-break:break-word;
+
+    }
+
+}

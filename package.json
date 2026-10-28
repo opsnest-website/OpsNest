@@ -1,0 +1,15 @@
+{
+  "name": "opsnest-website",
+  "private": true,
+  "type": "module",
+  "description": "OpsNest landing page: HTML partials + JSON data assembled by a dependency-free build script.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test scripts/*.test.mjs",
+    "logos": "python3 scripts/make_logos.py"
+  }
+}

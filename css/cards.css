@@ -1,0 +1,161 @@
+/*
+=========================================
+Card Surface (shared by most sections)
+=========================================
+*/
+
+.stat,
+.about-card,
+.core-card,
+.why-card,
+.update-card,
+details,
+.timeline-content{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.core-card,
+.why-card,
+.update-card,
+details,
+.timeline-content{
+
+    padding:28px;
+
+}
+
+.core-card h3,
+.why-card h3,
+.update-card h3,
+.timeline-content h3,
+details summary{
+
+    line-height:1.2;
+
+}
+
+.stat p,
+.about-content p,
+.core-card p,
+.why-card p,
+.update-card p,
+details p,
+.timeline-content p{
+
+    color:var(--muted);
+
+}
+
+/*
+=========================================
+Status Badges
+=========================================
+*/
+
+.badge{
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+}
+
+.success{
+
+    background:rgb(34 197 94 / 12%);
+
+    color:var(--badge-success);
+
+}
+
+.warning{
+
+    background:rgb(245 158 11 / 12%);
+
+    color:var(--badge-warning);
+
+}
+
+.info{
+
+    background:rgb(37 99 235 / 12%);
+
+    color:var(--badge-info);
+
+}
+
+/*
+=========================================
+Tags and Labels
+=========================================
+*/
+
+.tech-list span,
+.technology-grid span{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 12px;
+
+    border-radius:999px;
+
+    background:var(--tint);
+
+    border:1px solid var(--border);
+
+    color:var(--muted);
+
+    font-size:.92rem;
+
+}
+
+/* Status label: roadmap milestones and update dates */
+
+.timeline-content span,
+.update-date{
+
+    display:inline-flex;
+
+    margin-top:14px;
+
+    color:var(--secondary);
+
+    font-weight:600;
+
+    font-size:.85rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:.06em;
+
+}
+
+@media(max-width:700px){
+
+    .core-card,
+    .why-card,
+    .update-card,
+    details,
+    .timeline-content{
+
+        padding:24px;
+
+    }
+
+}

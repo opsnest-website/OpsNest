@@ -1,0 +1,38 @@
+[
+    {
+        "icon": "🐳",
+        "title": "DevOps & Infrastructure",
+        "status": "success",
+        "label": "DevOps",
+        "description": "Explore Docker, Kubernetes, CI/CD, Linux, cloud infrastructure, and operational troubleshooting.",
+        "tags": [
+            "Docker",
+            "Kubernetes",
+            "CI/CD"
+        ]
+    },
+    {
+        "icon": "⚙️",
+        "title": "Automation & Tooling",
+        "status": "success",
+        "label": "Automation",
+        "description": "Practical scripts, reusable tools, workflow automation, and engineering productivity improvements.",
+        "tags": [
+            "Shell",
+            "Python",
+            "Go"
+        ]
+    },
+    {
+        "icon": "🏗️",
+        "title": "Architecture & Lessons",
+        "status": "success",
+        "label": "Architecture",
+        "description": "Technical decisions, system design, debugging approaches, trade-offs, and lessons learned.",
+        "tags": [
+            "Design",
+            "Reliability",
+            "Lessons"
+        ]
+    }
+]

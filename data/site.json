@@ -1,7 +1,15 @@
 {
     "name": "OpsNest",
-    "tagline": "Engineering Automation for Modern Infrastructure",
-    "description": "Automation scripts, DevOps tools and technical documentation.",
-    "github": "https://github.com/opsnestin",
-    "copyright": "© 2026 OpsNest"
+    "url": "https://opsnest.in",
+    "tagline": "Engineering Automation",
+    "headline": "Engineering Automation for Modern Infrastructure",
+    "title": "OpsNest | Engineering Automation",
+    "description": "OpsNest is an engineering platform focused on automation, DevOps, cloud infrastructure, technical documentation and developer tools.",
+    "keywords": "Automation, DevOps, Kubernetes, Docker, Shell, Python, Linux, Terraform, Ansible, CI/CD",
+    "copyright": "© 2026 OpsNest.",
+    "social": {
+        "github": "https://github.com/opsnestin",
+        "linkedin": "",
+        "email": "contact@opsnest.in"
+    }
 }

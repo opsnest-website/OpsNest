@@ -1,0 +1,69 @@
+/*
+=========================================
+Section Header
+=========================================
+*/
+
+.section-header{
+
+    max-width:760px;
+
+    margin:0 auto 60px;
+
+    text-align:center;
+
+}
+
+.section-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgb(37 99 235 / 8%);
+
+    border:1px solid rgb(37 99 235 / 25%);
+
+    color:var(--label-text);
+
+    font-size:.9rem;
+
+    margin-bottom:22px;
+
+}
+
+.section-header h2{
+
+    font-size:clamp(2rem,4vw,2.8rem);
+
+    line-height:1.2;
+
+    margin-bottom:20px;
+
+}
+
+.section-header p{
+
+    color:var(--muted);
+
+    font-size:1.05rem;
+
+}
+
+@media(max-width:700px){
+
+    .section-header{
+
+        margin-bottom:40px;
+
+    }
+
+    .section-header h2{
+
+        font-size:clamp(1.8rem,7vw,2.3rem);
+
+    }
+
+}

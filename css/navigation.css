@@ -106,6 +106,8 @@ nav a{
 
     color:var(--muted);
 
+    white-space:nowrap;
+
     transition:var(--transition);
 
 }
@@ -116,11 +118,45 @@ nav a:hover{
 
 }
 
-/* Theme switch */
+/*
+Theme switch: a round button showing the current choice. On hover (or
+keyboard focus) it slides open to the left over the nav, so the layout
+never moves; the current choice is ordered last so it stays under the
+pointer. Touch screens cannot hover, so there all three stay visible.
+
+The current choice is read from <html data-theme>, which the <head>
+script sets before the first paint, so the switch never flickers.
+*/
 
 .theme-switch{
 
     display:none;
+
+    position:relative;
+
+    width:40px;
+
+    height:40px;
+
+}
+
+.js .theme-switch{
+
+    display:block;
+
+}
+
+.theme-switch-track{
+
+    position:absolute;
+
+    top:0;
+
+    right:0;
+
+    z-index:1;
+
+    display:flex;
 
     padding:3px;
 
@@ -128,13 +164,9 @@ nav a:hover{
 
     border-radius:999px;
 
-    background:var(--tint);
+    background:var(--surface);
 
-}
-
-.js .theme-switch{
-
-    display:inline-flex;
+    transition:box-shadow var(--transition);
 
 }
 
@@ -146,11 +178,17 @@ nav a:hover{
 
     justify-content:center;
 
-    width:32px;
+    flex-shrink:0;
+
+    order:var(--current-order, 0);
+
+    width:0;
 
     height:32px;
 
     padding:0;
+
+    overflow:hidden;
 
     border:0;
 
@@ -158,11 +196,67 @@ nav a:hover{
 
     background:none;
 
-    color:var(--muted);
+    color:var(--text);
+
+    opacity:0;
+
+    transform:scale(.6);
 
     cursor:pointer;
 
-    transition:var(--transition);
+    transition:
+
+        width .25s ease,
+
+        opacity .2s ease,
+
+        transform .25s ease,
+
+        color .2s ease,
+
+        background-color .2s ease;
+
+}
+
+/* The current choice: always visible, highlighted once the switch is open */
+
+:root:not([data-theme]) .theme-switch [data-theme-choice="system"],
+:root[data-theme="light"] .theme-switch [data-theme-choice="light"],
+:root[data-theme="dark"] .theme-switch [data-theme-choice="dark"]{
+
+    --current-order:1;
+
+    --current-bg:rgb(37 99 235 / 14%);
+
+    --current-color:var(--secondary);
+
+    width:32px;
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+.theme-switch:hover .theme-switch-track,
+.theme-switch:has(:focus-visible) .theme-switch-track{
+
+    box-shadow:var(--shadow);
+
+}
+
+.theme-switch:hover button,
+.theme-switch:has(:focus-visible) button{
+
+    width:32px;
+
+    opacity:1;
+
+    transform:none;
+
+    background:var(--current-bg, none);
+
+    color:var(--current-color, var(--muted));
 
 }
 
@@ -172,25 +266,17 @@ nav a:hover{
 
 }
 
-.theme-switch button[aria-pressed="true"]{
-
-    background:var(--surface);
-
-    color:var(--text);
-
-    box-shadow:0 1px 3px rgb(0 0 0 / 20%);
-
-}
-
 .theme-switch button:focus-visible{
 
     outline:2px solid var(--secondary);
 
-    outline-offset:2px;
+    outline-offset:-2px;
 
 }
 
 .theme-switch svg{
+
+    flex-shrink:0;
 
     width:17px;
 
@@ -208,6 +294,50 @@ nav a:hover{
 
 }
 
+@media(hover:none){
+
+    .theme-switch{
+
+        width:auto;
+
+        height:auto;
+
+    }
+
+    .theme-switch-track{
+
+        position:static;
+
+    }
+
+    .theme-switch button{
+
+        order:0;
+
+        width:32px;
+
+        opacity:1;
+
+        transform:none;
+
+        background:var(--current-bg, none);
+
+        color:var(--current-color, var(--muted));
+
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    .theme-switch button{
+
+        transition:none;
+
+    }
+
+}
+
 @media(max-width:900px){
 
     .header-actions,
@@ -219,7 +349,9 @@ nav a:hover{
 
 }
 
-@media(max-width:700px){
+/* Below 840px the logo, links and switch no longer fit on one line. */
+
+@media(max-width:840px){
 
     /* Logo and theme switch share the first row; links wrap below. */
 

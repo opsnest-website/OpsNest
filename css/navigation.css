@@ -120,9 +120,9 @@ nav a:hover{
 
 /*
 Theme switch: a round button showing the current choice. On hover (or
-keyboard focus) it slides open to the left over the nav, so the layout
-never moves; the current choice is ordered last so it stays under the
-pointer. Touch screens cannot hover, so there all three stay visible.
+keyboard focus) it drops down over the page, so the layout never moves;
+the current choice is ordered first so it stays under the pointer.
+Touch screens cannot hover, so there all three stay visible in a row.
 
 The current choice is read from <html data-theme>, which the <head>
 script sets before the first paint, so the switch never flickers.
@@ -158,6 +158,8 @@ script sets before the first paint, so the switch never flickers.
 
     display:flex;
 
+    flex-direction:column;
+
     padding:3px;
 
     border:1px solid var(--border);
@@ -182,9 +184,9 @@ script sets before the first paint, so the switch never flickers.
 
     order:var(--current-order, 0);
 
-    width:0;
+    width:32px;
 
-    height:32px;
+    height:0;
 
     padding:0;
 
@@ -206,7 +208,7 @@ script sets before the first paint, so the switch never flickers.
 
     transition:
 
-        width .25s ease,
+        height .25s ease,
 
         opacity .2s ease,
 
@@ -224,13 +226,13 @@ script sets before the first paint, so the switch never flickers.
 :root[data-theme="light"] .theme-switch [data-theme-choice="light"],
 :root[data-theme="dark"] .theme-switch [data-theme-choice="dark"]{
 
-    --current-order:1;
+    --current-order:-1;
 
     --current-bg:rgb(37 99 235 / 14%);
 
     --current-color:var(--secondary);
 
-    width:32px;
+    height:32px;
 
     opacity:1;
 
@@ -248,7 +250,7 @@ script sets before the first paint, so the switch never flickers.
 .theme-switch:hover button,
 .theme-switch:has(:focus-visible) button{
 
-    width:32px;
+    height:32px;
 
     opacity:1;
 
@@ -308,13 +310,15 @@ script sets before the first paint, so the switch never flickers.
 
         position:static;
 
+        flex-direction:row;
+
     }
 
     .theme-switch button{
 
         order:0;
 
-        width:32px;
+        height:32px;
 
         opacity:1;
 

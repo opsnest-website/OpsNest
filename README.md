@@ -48,6 +48,18 @@ The site follows the visitor's system setting by default. The switch in the head
 - **Theme-specific images** use `<picture>` with a light `<source data-theme-source="light">` (see `components/hero.html`); `js/app.js` points that source at the visitor's choice.
 - **No flash on load:** a small script in the `<head>` of `index.html` applies the saved choice before the page paints. The theme logic lives in `js/app.js`.
 
+### Analytics
+
+Visitor stats are cookie-free, so the site needs no cookie consent prompt. To turn them on, sign up with one provider and fill in its value under `analytics` in `data/site.json` (leave the others empty):
+
+| Provider | Value | Cost |
+|---|---|---|
+| [GoatCounter](https://www.goatcounter.com) | your site code, e.g. `opsnest` for opsnest.goatcounter.com | free for non-commercial use, open source |
+| [Plausible](https://plausible.io) | the domain, `opsnest.in` | paid |
+| [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/) | the site token from the dashboard | free, needs a Cloudflare account |
+
+The script tags live in `components/partials/analytics.html`. If you add anything that does set cookies or track visitors across sites (Google Analytics, ads, embedded videos), it will need a consent prompt first.
+
 ### Logo
 
 `brand/logo-master.png` is the source artwork, drawn for a light background. `npm run logos` generates every logo the site uses into `assets/`: a dark-background version for the hero (`logo-dark-bg.webp`) and for the header and footer (`mark-dark-bg.png`, symbol only), the matching light-background versions (`logo-light-bg.webp`, `mark-light-bg.png`) for light mode, plus `favicon.png`, `apple-touch-icon.png` and the link preview `og-image.png` in the original colours on white. After replacing the master, run it and commit the regenerated files; the build itself does not need Python.

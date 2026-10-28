@@ -1,0 +1,14 @@
+<!--
+    Cookie-free visitor analytics. Fill in ONE value under "analytics" in data/site.json;
+    while all three are empty, nothing is loaded. None of these set cookies or track
+    visitors across sites, so no cookie consent prompt is needed.
+-->
+<!-- @if site.analytics.goatcounter -->
+<script data-goatcounter="https://{{ site.analytics.goatcounter }}.goatcounter.com/count" async="async" src="https://gc.zgo.at/count.js"></script>
+<!-- @end -->
+<!-- @if site.analytics.plausible -->
+<script defer="defer" data-domain="{{ site.analytics.plausible }}" src="https://plausible.io/js/script.js"></script>
+<!-- @end -->
+<!-- @if site.analytics.cloudflare -->
+<script defer="defer" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;{{ site.analytics.cloudflare }}&quot;}"></script>
+<!-- @end -->

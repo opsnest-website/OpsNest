@@ -21,6 +21,10 @@ test("@each repeats with the loop variable, including nested loops", () => {
     assert.equal(html, "<b>One</b><i>a</i><i>b</i><b>Two</b>");
 });
 
+test("@each exposes loop.index and loop.count", () => {
+    assert.equal(render("<!-- @each x in xs -->{{ loop.index }}/{{ loop.count }}:{{ x }} <!-- @end -->", { xs: ["a", "b"] }), "0/2:a 1/2:b ");
+});
+
 test("@if / @else treat missing optional fields as false", () => {
     const template = "<!-- @each u in updates --><!-- @if u.href --><a href=\"{{u.href}}\">{{u.title}}</a><!-- @else --><p>{{u.title}}</p><!-- @end --><!-- @end -->";
     assert.equal(render(template, { updates: [{ title: "Link", href: "x/" }, { title: "Plain" }] }), '<a href="x/">Link</a><p>Plain</p>');

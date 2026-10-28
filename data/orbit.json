@@ -1,0 +1,22 @@
+{
+    "areas": [
+        { "icon": "🤖", "label": "AI Tools" },
+        { "icon": "⚙️", "label": "Automation" },
+        { "icon": "🎓", "label": "Learn", "href": "learn/" },
+        { "icon": "☸️", "label": "DevOps" },
+        { "icon": "✍️", "label": "Blog", "href": "blog/" },
+        { "icon": "📚", "label": "Docs" }
+    ],
+    "technologies": [
+        "Linux",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "Python",
+        "AWS",
+        "Azure",
+        "GitHub Actions",
+        "Grafana"
+    ]
+}

@@ -1,14 +1,49 @@
-<section id="community" class="section">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag">Community</span>
-            <h2>Build together.</h2>
-            <p>Contributions, ideas, bug reports and discussions are always welcome.</p>
+<section id="community" class="section community">
+    <div class="container community-layout">
+        <div class="community-copy">
+            <div class="section-header">
+                <span class="section-tag">Community</span>
+                <h2>Build together.</h2>
+                <p>Contributions, ideas, bug reports and discussions are always welcome.</p>
+            </div>
+
+            <div class="community-buttons">
+                <a href="{{ site.social.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View GitHub</a>
+                <a href="#contact" class="btn btn-secondary">Contact</a>
+            </div>
         </div>
 
-        <div class="community-buttons">
-            <a href="{{ site.social.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View GitHub</a>
-            <a href="#contact" class="btn btn-secondary">Contact</a>
+        <!--
+            Orbit: what OpsNest covers. Items come from data/orbit.json and are spaced evenly
+            around each ring; an area with an "href" becomes a link (Learn, Blog).
+        -->
+        <div class="orbit">
+            <div class="orbit-glow"></div>
+
+            <ul class="orbit-ring orbit-ring-outer" aria-label="Technologies">
+                <!-- @each tech in orbit.technologies -->
+                <li style="--i: {{ loop.index }}; --n: {{ loop.count }};"><span class="orbit-item">{{ tech }}</span></li>
+                <!-- @end -->
+            </ul>
+
+            <ul class="orbit-ring orbit-ring-inner" aria-label="Core areas">
+                <!-- @each area in orbit.areas -->
+                <li style="--i: {{ loop.index }}; --n: {{ loop.count }};">
+                    <!-- @if area.href -->
+                    <a class="orbit-item orbit-link" href="{{ area.href }}"><span aria-hidden="true">{{ area.icon }}</span> {{ area.label }} <span aria-hidden="true">→</span></a>
+                    <!-- @else -->
+                    <span class="orbit-item"><span aria-hidden="true">{{ area.icon }}</span> {{ area.label }}</span>
+                    <!-- @end -->
+                </li>
+                <!-- @end -->
+            </ul>
+
+            <div class="orbit-center">
+                <picture>
+                    <source srcset="assets/mark-light-bg.png" media="(prefers-color-scheme: light)" data-theme-source="light">
+                    <img src="assets/mark-dark-bg.png" width="76" height="76" alt="" loading="lazy">
+                </picture>
+            </div>
         </div>
     </div>
 </section>

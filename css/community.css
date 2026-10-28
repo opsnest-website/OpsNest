@@ -1,0 +1,385 @@
+/*
+=========================================
+Community
+=========================================
+*/
+
+/* The orbit's outer labels can swing past narrow screens; never let them cause sideways scrolling. */
+
+.community{
+
+    overflow-x:clip;
+
+}
+
+.community-layout{
+
+    display:grid;
+
+    grid-template-columns:minmax(0,1fr) auto;
+
+    align-items:center;
+
+    gap:60px;
+
+}
+
+.community-copy .section-header{
+
+    max-width:560px;
+
+    margin:0 0 32px;
+
+    text-align:left;
+
+}
+
+.community-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+}
+
+/*
+=========================================
+Orbit
+=========================================
+
+Two rings turning in opposite directions around the OpsNest mark.
+Each item sits at angle (360deg / n) * i on its ring (--i and --n come
+from the template); its label spins the other way so it stays upright.
+Hovering pauses the motion; reduced-motion visitors get a still orbit.
+*/
+
+.orbit{
+
+    --size:640px;
+
+    position:relative;
+
+    width:var(--size);
+
+    height:var(--size);
+
+    margin-inline:auto;
+
+}
+
+.orbit-glow{
+
+    position:absolute;
+
+    inset:22%;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,var(--primary),#7C3AED 70%,transparent);
+
+    filter:blur(80px);
+
+    opacity:var(--glow-opacity);
+
+}
+
+.orbit-ring{
+
+    position:absolute;
+
+    inset:0;
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+    animation:orbit-spin var(--duration) linear infinite;
+
+}
+
+/* The ring's circle line; it turns with the ring */
+
+.orbit-ring::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:calc(var(--radius) * 2);
+
+    height:calc(var(--radius) * 2);
+
+    margin:calc(var(--radius) * -1) 0 0 calc(var(--radius) * -1);
+
+    border:1px dashed var(--border);
+
+    border-radius:50%;
+
+}
+
+.orbit-ring-inner{
+
+    --radius:150px;
+
+    --duration:40s;
+
+}
+
+.orbit-ring-outer{
+
+    --radius:262px;
+
+    --duration:70s;
+
+    animation-direction:reverse;
+
+}
+
+.orbit-ring li{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:
+
+        rotate(calc(360deg / var(--n) * var(--i)))
+
+        translateX(var(--radius))
+
+        rotate(calc(-360deg / var(--n) * var(--i)))
+
+        translate(-50%,-50%);
+
+}
+
+.orbit-item{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:7px 14px;
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow);
+
+    white-space:nowrap;
+
+    animation:orbit-spin var(--duration) linear infinite reverse;
+
+}
+
+.orbit-ring-outer .orbit-item{
+
+    color:var(--muted);
+
+    font-size:.85rem;
+
+    animation-direction:normal;
+
+}
+
+.orbit-ring-inner .orbit-item{
+
+    font-weight:600;
+
+    font-size:.92rem;
+
+}
+
+/* Learn and Blog: links, so they look clickable */
+
+.orbit-link{
+
+    border-color:rgb(37 99 235 / 45%);
+
+    color:var(--text);
+
+    transition:
+
+        border-color var(--transition),
+
+        background-color var(--transition),
+
+        color var(--transition);
+
+}
+
+.orbit-link:hover{
+
+    border-color:var(--primary);
+
+    background:rgb(37 99 235 / 14%);
+
+    color:var(--secondary);
+
+}
+
+.orbit-link:focus-visible{
+
+    outline:2px solid var(--secondary);
+
+    outline-offset:3px;
+
+}
+
+.orbit-center{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    width:108px;
+
+    height:108px;
+
+    border:1px solid var(--border);
+
+    border-radius:50%;
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow);
+
+    transform:translate(-50%,-50%);
+
+}
+
+.orbit-center img{
+
+    width:76px;
+
+    height:76px;
+
+}
+
+/* Pause while pointing at or tabbing through the orbit, so the links are easy to click */
+
+.orbit:hover .orbit-ring,
+.orbit:hover .orbit-item,
+.orbit:focus-within .orbit-ring,
+.orbit:focus-within .orbit-item{
+
+    animation-play-state:paused;
+
+}
+
+@keyframes orbit-spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    .orbit-ring,
+    .orbit-item{
+
+        animation:none;
+
+    }
+
+}
+
+@media(max-width:1100px){
+
+    .community-layout{
+
+        grid-template-columns:minmax(0,1fr);
+
+        gap:48px;
+
+    }
+
+    .community-copy .section-header{
+
+        margin:0 auto 32px;
+
+        text-align:center;
+
+    }
+
+    .community-buttons{
+
+        justify-content:center;
+
+    }
+
+}
+
+/*
+The orbit is drawn at a fixed size and scaled down as a whole on small
+screens; on phones its labels are drawn larger so they stay readable.
+*/
+
+@media(max-width:700px){
+
+    .orbit{
+
+        zoom:.72;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .orbit{
+
+        zoom:.55;
+
+    }
+
+    .orbit-ring-inner{
+
+        --radius:140px;
+
+    }
+
+    .orbit-ring-outer{
+
+        --radius:255px;
+
+    }
+
+    .orbit-ring-outer .orbit-item{
+
+        font-size:1.1rem;
+
+    }
+
+    .orbit-ring-inner .orbit-item{
+
+        font-size:1.2rem;
+
+    }
+
+}

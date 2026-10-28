@@ -15,6 +15,7 @@ data/                 Content lists rendered into the partials
   projects.json       Featured projects        blog-topics.json  Blog topic cards
   roadmap.json        Roadmap milestones       updates.json      Latest updates
   technologies.json   Technology stack         faq.json          FAQ entries
+  orbit.json          Rotating circle in the Community section: core areas (inner ring) and technologies (outer ring)
 css/style.css         Imports every stylesheet in cascade order (bundled into one file by the build)
 css/<section>.css     Styles for one section, including its responsive rules
 js/app.js             Page script
@@ -29,7 +30,7 @@ scripts/              build.mjs (build), dev.mjs (preview server), template.mjs 
 - **Change a section's markup:** edit its file in `components/`. Styles for that section are in the `css/` file with the same name.
 - **Add a section:** create `components/<name>.html` (and `css/<name>.css` if needed), then add `<!-- @include components/<name>.html -->` to `index.html` and `@import url("<name>.css");` to `css/style.css`.
 
-Template syntax (see `scripts/template.mjs`): `{{ site.name }}` inserts an escaped value, `<!-- @each item in projects --> … <!-- @end -->` repeats a block, `<!-- @if item.href --> … <!-- @else --> … <!-- @end -->` is a conditional, and `<!-- @include path -->` inserts a partial. Unknown values and missing files fail the build.
+Template syntax (see `scripts/template.mjs`): `{{ site.name }}` inserts an escaped value, `<!-- @each item in projects --> … <!-- @end -->` repeats a block (with `{{ loop.index }}` and `{{ loop.count }}` available inside), `<!-- @if item.href --> … <!-- @else --> … <!-- @end -->` is a conditional, and `<!-- @include path -->` inserts a partial. Unknown values and missing files fail the build.
 
 ### Commands
 

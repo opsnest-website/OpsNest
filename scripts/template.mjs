@@ -6,6 +6,7 @@ Minimal HTML template engine (no dependencies)
   {{ path.to.value }}              escaped value from data/*.json or a loop variable
   <!-- @include components/x.html -->   insert another file (rendered with the same data)
   <!-- @each item in projects -->  ...  <!-- @end -->   repeat for every array element
+                                   (inside the loop, {{ loop.index }} is 0, 1, 2… and {{ loop.count }} the list length)
   <!-- @if item.href --> ... <!-- @else --> ... <!-- @end -->   conditional block
 
 Unknown variables and missing includes throw, so typos fail the build
@@ -89,7 +90,9 @@ function renderNodes(nodes, scope, context) {
         } else if (node.type === "each") {
             const items = lookup(scope, node.expression, context.file);
             if (!Array.isArray(items)) throw new Error(`${context.file}: "${node.expression}" is not a list`);
-            for (const item of items) output += renderNodes(node.children, { ...scope, [node.name]: item }, context);
+            items.forEach((item, index) => {
+                output += renderNodes(node.children, { ...scope, [node.name]: item, loop: { index, count: items.length } }, context);
+            });
         } else if (node.type === "if") {
             // Optional fields: a missing key counts as false rather than an error.
             let value;

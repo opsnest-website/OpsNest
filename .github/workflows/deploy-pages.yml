@@ -31,7 +31,7 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      # Build exactly the Markbase/Blogs commits pinned in this repository, so every
+      # Build exactly the Markbase/Blogs/FocusGuard commits pinned in this repository, so every
       # deploy is reproducible and reviewable. Dependabot (.github/dependabot.yml)
       # opens a PR when a module's main branch moves; merging it deploys the update.
       - name: Show pinned module commits
@@ -107,10 +107,17 @@ jobs:
           npm test
           npm run build
 
-          mkdir -p dist/learn dist/blog
+          test -f modules/focusguard/site/index.html || {
+            echo "::error::FocusGuard site (modules/focusguard/site) is missing."
+            exit 1
+          }
+
+          mkdir -p dist/learn dist/blog dist/focusguard
 
           rsync -a modules/markbase/dist/ dist/learn/
           rsync -a modules/blogs/dist/ dist/blog/
+          # FocusGuard is plain static HTML (no build step).
+          rsync -a modules/focusguard/site/ dist/focusguard/
 
           touch dist/.nojekyll
 
@@ -214,6 +221,10 @@ jobs:
 
           # Blog platform
           check_endpoint "/blog/" "<html"
+
+          # FocusGuard website and its privacy policy (linked from Google Play)
+          check_endpoint "/focusguard/" "<html"
+          check_endpoint "/focusguard/privacy/" "FocusGuard Privacy Policy"
 
           check_endpoint "/sitemap.xml" "<urlset"
 

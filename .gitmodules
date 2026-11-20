@@ -6,3 +6,7 @@
 	path = modules/blogs
 	url = https://github.com/opsnest-website/opsnest-blogs.git
 	branch = main
+[submodule "modules/focusguard"]
+	path = modules/focusguard
+	url = https://github.com/opsnest-website/opsnest-focusguard-website.git
+	branch = main

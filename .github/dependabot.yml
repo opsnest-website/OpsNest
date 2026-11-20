@@ -1,6 +1,6 @@
 version: 2
 updates:
-  # Opens a PR whenever modules/markbase or modules/blogs has new commits on main.
+  # Opens a PR whenever modules/markbase, modules/blogs or modules/focusguard has new commits on main.
   # Merging that PR is what publishes module changes to the live site.
   - package-ecosystem: gitsubmodule
     directory: /

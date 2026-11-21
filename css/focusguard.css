@@ -1,0 +1,161 @@
+/*
+=========================================
+FocusGuard (Android app)
+=========================================
+*/
+
+.focusguard-grid{
+
+    display:grid;
+
+    grid-template-columns:minmax(0,1.3fr) minmax(280px,.9fr);
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+.focusguard-content p{
+
+    color:var(--muted);
+
+}
+
+.focusguard-content p + p{
+
+    margin-top:18px;
+
+}
+
+.focusguard-content strong{
+
+    color:var(--text);
+
+}
+
+.focusguard-buttons{
+
+    margin-top:28px;
+
+}
+
+.focusguard-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    padding:30px;
+
+}
+
+.focusguard-card-head{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.focusguard-card-head img{
+
+    border-radius:14px;
+
+    flex-shrink:0;
+
+}
+
+.focusguard-card-head h3{
+
+    line-height:1.2;
+
+    margin-bottom:6px;
+
+}
+
+.focusguard-card ul{
+
+    list-style:none;
+
+    display:grid;
+
+    gap:12px;
+
+    margin-top:22px;
+
+}
+
+.focusguard-card li{
+
+    position:relative;
+
+    padding-left:22px;
+
+}
+
+.focusguard-card li::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:.7em;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+}
+
+.focusguard-meta{
+
+    margin-top:22px;
+
+    padding-top:18px;
+
+    border-top:1px solid var(--border);
+
+    color:var(--muted);
+
+    font-size:.92rem;
+
+}
+
+.focusguard-meta a{
+
+    color:var(--link-accent);
+
+}
+
+@media(max-width:900px){
+
+    .focusguard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .focusguard-card{
+
+        padding:24px;
+
+    }
+
+}

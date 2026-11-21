@@ -52,6 +52,12 @@ Navigation
 
     gap:15px;
 
+    /* Never squeeze the logo text into a column when the menu is wide. */
+
+    flex-shrink:0;
+
+    white-space:nowrap;
+
 }
 
 .logo img{
@@ -342,7 +348,7 @@ script sets before the first paint, so the switch never flickers.
 
 }
 
-@media(max-width:900px){
+@media(max-width:1180px){
 
     .header-actions,
     nav{
@@ -353,9 +359,9 @@ script sets before the first paint, so the switch never flickers.
 
 }
 
-/* Below 840px the logo, links and switch no longer fit on one line. */
+/* Below 1080px the logo, eight links and the switch no longer fit on one line. */
 
-@media(max-width:840px){
+@media(max-width:1080px){
 
     /* Logo and theme switch share the first row; links wrap below. */
 
